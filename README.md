@@ -97,3 +97,5 @@ If it is successful you should see a JSON payload return that looks like this:
 Rather than setting AWS credentials via `aws configure`, we should always use environment variables when working in a CDE.
 
 [Environment Variables to conifgure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+We'll need to generate AWS credentials in IAM service console in order to use AWS CLI.
