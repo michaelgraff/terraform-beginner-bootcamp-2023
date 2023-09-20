@@ -99,3 +99,52 @@ Rather than setting AWS credentials via `aws configure`, we should always use en
 [Environment Variables to conifgure the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
 We'll need to generate AWS credentials in IAM service console in order to use AWS CLI.
+
+## Terraform Basics
+
+### Terraform Registry
+
+The Terraform Registry is a site maintained by HashiCorp where you can source Providers and Modules
+
+**Providers** are interfaces to service providers' APIs that allow you to create resources with Terraform
+**Modules** are a way to make chunks of Terraform code modular, portable, and sharable across teams.
+
+[Official Terraform Registry from HashiCorp](https://registry.terraform.io/)
+
+[Official Random Provider](https://registry.terraform.io/providers/hashicorp/random/latest/docs)
+
+### Terraform Console
+
+We can see a list of all the Terraform commands by simply typing `terraform`
+
+#### Terraform Init
+
+At the start of a new terraform project we will run `terraform init` to prepare the working directory and download any required binaries for the terraform providers that will be used in the project.
+
+#### Terraform Plan
+
+You can type `terraform plan` to ask Terraform to look at your code and generate a list of what will be changed when the code is applied (changeset).
+
+We can output this changeset i.e. "plan" to be passed to an apply, but often this is not necessarily required
+
+#### Terraform Apply
+
+The command `terraform apply` will run a plan and pass the changeset to be executed by Terraform.  Apply should prompt us to approve before executing unless you use the `--auto-approve` flag
+
+### Terraform Lock Files
+
+`.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project.
+The lock file should be commited to your Version Control System (VCS) e.g. GitHub
+
+### Terraform State Files
+
+`.terraform.tfstate` contains information about the current state of the deployed infrastructure.  
+This file **should not be commited** to your VCS as it can contain sensitive data.
+
+If you lose this file, you will lose track of the state of your infrastructure.
+
+`.terraform.tfstate.backup` is the previous state file that gets created when a new apply happens.
+
+### Terraform Directory
+
+`.terraform` directory contains binaries of terraform providers and should also not be committed to your VCS.
