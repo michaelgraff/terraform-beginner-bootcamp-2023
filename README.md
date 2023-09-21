@@ -131,12 +131,16 @@ We can output this changeset i.e. "plan" to be passed to an apply, but often thi
 
 The command `terraform apply` will run a plan and pass the changeset to be executed by Terraform.  Apply should prompt us to approve before executing unless you use the `--auto-approve` flag
 
-### Terraform Lock Files
+#### Terraform Destroy
+
+The command `terraform destroy` will destroy resources in your current deployed state.
+
+#### Terraform Lock Files
 
 `.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project.
 The lock file should be commited to your Version Control System (VCS) e.g. GitHub
 
-### Terraform State Files
+#### Terraform State Files
 
 `.terraform.tfstate` contains information about the current state of the deployed infrastructure.  
 This file **should not be commited** to your VCS as it can contain sensitive data.
@@ -145,6 +149,6 @@ If you lose this file, you will lose track of the state of your infrastructure.
 
 `.terraform.tfstate.backup` is the previous state file that gets created when a new apply happens.
 
-### Terraform Directory
+#### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers and should also not be committed to your VCS.
