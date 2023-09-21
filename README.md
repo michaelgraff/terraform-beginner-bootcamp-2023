@@ -152,3 +152,13 @@ If you lose this file, you will lose track of the state of your infrastructure.
 #### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers and should also not be committed to your VCS.
+
+### Issues with Terraform Cloud Login and GitPod Workspace
+
+After adding Terraform cloud provider to your main.tf and performing a `terraform login`, Terraform will attempt to launch a browser to perform the login and retrieve a token.  However Gitpod tries to open a local Lynx browser instead of popping your local web browser. 
+
+To workaround this, you can copy and paste this URL into your local browser to login to terraform Cloud and retrieve a token:
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+After manually creating and retrieving a token, you can go back to Gitpod, exit from the lynx browser and paste your token in to complete Terraform Cloud login.
