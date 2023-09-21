@@ -166,5 +166,9 @@ After manually creating and retrieving a token, you can go back to Gitpod, exit 
 Once the token has been added properly, it will be placed in a file located here: `/home/gitpod/.terraform.d/credentials.tfrc.json`
 
 To avoid any future Terraform init issues, we ensure that the token is always present in newly lauched Gitpod environments by doing the following
-- create a longer lasting Terraform Cloud token (30 days) and set it as a permanent git pod env var using `gp end TERRAFORM_CLOUD_TOKEN='tokenvalue'`
-- we wrote a bash script that uses the env var to generate the properly formatted credentials.tfrc.json file and placing it in the correct directory.
+- create a longer lasting Terraform Cloud token (30 days) and set it as a permanent git pod env var using 
+
+```
+gp env TERRAFORM_CLOUD_TOKEN='tokenvalue'
+```
+- we wrote a bash script that uses the env var to generate the properly formatted credentials.tfrc.json file and placing it in the correct directory: `./bin/generate_tfrc_credentials``
