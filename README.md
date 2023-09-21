@@ -162,3 +162,13 @@ To workaround this, you can copy and paste this URL into your local browser to l
 https://app.terraform.io/app/settings/tokens?source=terraform-login
 ```
 After manually creating and retrieving a token, you can go back to Gitpod, exit from the lynx browser and paste your token in to complete Terraform Cloud login.
+
+Once the token has been added properly, it will be placed in a file located here: `/home/gitpod/.terraform.d/credentials.tfrc.json`
+
+To avoid any future Terraform init issues, we ensure that the token is always present in newly lauched Gitpod environments by doing the following
+- create a longer lasting Terraform Cloud token (30 days) and set it as a permanent git pod env var using 
+
+```
+gp env TERRAFORM_CLOUD_TOKEN='tokenvalue'
+```
+- we wrote a bash script that uses the env var to generate the properly formatted credentials.tfrc.json file and placing it in the correct directory: `./bin/generate_tfrc_credentials``
