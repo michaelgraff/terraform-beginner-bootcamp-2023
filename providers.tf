@@ -1,11 +1,10 @@
 terraform {
-    cloud {
-      organization = "cloudyadvice"
+  # cloud {
+  #   organization = "cloudyadvice"
 
-    workspaces {
-      name = "terra-house-1"
-    }
-  }
+  # workspaces {
+  #   name = "terra-house-1"
+  # }
   
   
   required_providers {
