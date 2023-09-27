@@ -49,3 +49,13 @@ Is it possible to ensure that tfvars files following custom naming schemes are l
 
 It is in fact possible to name your file whatever you wish and have Terraform load it automatically. All we have to do is provide the file name with .auto.tfvars as an extension. Let’s try it out.
 
+## Dealing with Configuration Drift
+
+### Fix Missing resources with Terraform Import
+
+If your state file is lost you can can use [Terraform Import](https://developer.hashicorp.com/terraform/cli/import) to import existing resources back into your Terraform State.
+
+### Fix Manual Configuration of Resources
+
+If resources have been manually changed via ClickOps but the original configuration is in your state file, this can be easily corrected by peforming a `Terraform Plan` followed by a `Terraform Apply`.  This will detect the unwanted changes and correct them.
+
