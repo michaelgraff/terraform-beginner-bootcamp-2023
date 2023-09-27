@@ -95,3 +95,29 @@ module "terrahouse_aws" {
   bucket_name = var.bucket_name
 }
 ```
+
+## Setup AWS S3 Bucket Static Website Hosting
+
+### Enable S3 Static Website Hosting on a Bucket
+AWS S3 Static Website hosting can be configured via Terraform using
+
+[Terraform AWS Provider S3 Bucket Website Hosting Configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration#website_endpoint)
+
+### Upload required website files to the bucket
+
+While Terraform is perhaps not the optimal tool for uploading files to S3, it can be done using the `aws_s3_object` resource type.  Note that there is also a resource type called `aws_s3_bucket_object` but this resource type has been deprecated and will be removed in a future version of the Provider so should no longer be used.
+
+[Terraform AWS Provider S3 Object Resource type](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object)
+
+## Working with Files in Terraform
+
+[Filesystem and Workspace Info](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+### Path Variables
+
+In terraform there is a special variable called path that allows us to reference local paths:
+
+- path.module - get the path for the current module
+- path.root - is the filesystem path of the root module of the configuration.
+
+
