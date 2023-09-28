@@ -174,3 +174,27 @@ A data block requests that Terraform read from a given data source ("aws_ami") a
 You can encode JSON inside your Terraform HCL using the `jsonencode` function.   [jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
 
 We used this to embed a bucket policy into our Terraform bucket policy code.
+
+## Changing the Lifecyle of Resources
+
+[Meta-Arguments Lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+The Resource Behavior page describes the general lifecycle for resources. Some details of that behavior can be customized using the special nested lifecycle block within a resource block body:
+
+We used this feature to configure our index.html file to only be replaced when the content version is changed:
+
+```tf
+  lifecycle {
+    replace_triggered_by = [ terraform_data.content_version.output ]
+    ignore_changes = [ etag ]  
+  }
+}
+```
+
+## Terraform Data
+
+[](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+The replace_triggered_by lifecycle argument requires all of the given addresses to be for resources, because the decision to force replacement is based on the planned actions for all of the mentioned resources.
+
+Plain data values such as Local Values and Input Variables don't have any side-effects to plan against and so they aren't valid in replace_triggered_by. You can use terraform_data's behavior of planning an action each time input changes to indirectly use a plain value to trigger replacement.
