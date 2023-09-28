@@ -143,4 +143,34 @@ variable "error_html_filepath" {
   }
 ```
 
+## Terraform Locals
 
+Locals allow us to define local variables. 
+
+### Terraform Data Sources 
+
+*Data sources* allow Terraform to use information defined outside of Terraform, defined by another separate Terraform configuration, or modified by functions.
+
+[Terraform Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
+
+A data source is accessed via a special kind of resource known as a data resource, declared using a `data`` block:
+
+```tf
+data "aws_ami" "example" {
+  most_recent = true
+
+  owners = ["self"]
+  tags = {
+    Name   = "app-server"
+    Tested = "true"
+  }
+}
+```
+
+A data block requests that Terraform read from a given data source ("aws_ami") and export the result under the given local name ("example"). The name is used to refer to this resource from elsewhere in the same Terraform module, but has no significance outside of the scope of a module.
+
+## Working with JSON
+
+You can encode JSON inside your Terraform HCL using the `jsonencode` function.   [jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+We used this to embed a bucket policy into our Terraform bucket policy code.
