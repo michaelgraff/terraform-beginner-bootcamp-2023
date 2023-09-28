@@ -198,15 +198,3 @@ We used this feature to configure our index.html file to only be replaced when t
 The replace_triggered_by lifecycle argument requires all of the given addresses to be for resources, because the decision to force replacement is based on the planned actions for all of the mentioned resources.
 
 Plain data values such as Local Values and Input Variables don't have any side-effects to plan against and so they aren't valid in replace_triggered_by. You can use terraform_data's behavior of planning an action each time input changes to indirectly use a plain value to trigger replacement.
-
-## Using Terraform to execute commands
-
-Terraform provisioner `local-exec` allows you to execute commands in the local compute environment.
-
-[Terraform Local Exec Provisioner](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec)
-
-### heredoc
-
-Terraform also supports a "heredoc" style of string literal inspired by Unix shell languages, which allows multi-line strings to be expressed more clearly.
-
-[Heredoc strings](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings)
