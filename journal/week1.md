@@ -120,4 +120,27 @@ In terraform there is a special variable called path that allows us to reference
 - path.module - get the path for the current module
 - path.root - is the filesystem path of the root module of the configuration.
 
+### Computing ETAGs using File MD5
+
+etags are used to identify changes in the contents of a file. It's used to determine whether an object has changed since the last request.   We can calculate an etag on an object to determine whether it has changed since the last apply and thus trigger it to be re-uploaded.
+
+Terraform has many built in functions, one of which is the `filemd5` function which can be used to calculate an MD5 hash on the *contents* a file
+
+[Terraform filemd5](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+
+### File Exists Function
+
+Built in function to check if a file exists.   Example:
+
+```tf
+variable "error_html_filepath" {
+  description = "Local file path to the error.html file"
+  type        = string
+
+  validation {
+    condition     = fileexists(var.error_html_filepath)
+    error_message = "The specified HTML file path does not exist."
+  }
+```
+
 

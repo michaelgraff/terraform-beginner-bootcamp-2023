@@ -6,3 +6,13 @@ variable "bucket_name" {
   description = "The name of the AWS S3 bucket"
   type        = string
 }
+
+variable "index_html_filepath" {
+  description = "Local file path to the index.html file"
+  type        = string
+}
+
+variable "error_html_filepath" {
+  description = "Local file path to the error.html file"
+  type        = string
+}
