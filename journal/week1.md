@@ -193,8 +193,20 @@ We used this feature to configure our index.html file to only be replaced when t
 
 ## Terraform Data
 
-[](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+[https://developer.hashicorp.com/terraform/language/data-sources](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
 
 The replace_triggered_by lifecycle argument requires all of the given addresses to be for resources, because the decision to force replacement is based on the planned actions for all of the mentioned resources.
 
 Plain data values such as Local Values and Input Variables don't have any side-effects to plan against and so they aren't valid in replace_triggered_by. You can use terraform_data's behavior of planning an action each time input changes to indirectly use a plain value to trigger replacement.
+
+## Terraform Local Exec Provisioner
+
+The local-exec provisioner invokes a local executable after a resource is created. This invokes a process on the machine running Terraform, not on the resource. See the remote-exec provisioner to run commands on the resource.
+
+Note that even though the resource will be fully created when the provisioner is run, there is no guarantee that it will be in an operable state - for example system services such as sshd may not be started yet on compute resources.
+
+[Terraform Local Exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec)
+
+### Using Heredoc with local-exec
+
+[Heredoc](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings)
