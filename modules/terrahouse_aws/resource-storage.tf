@@ -41,6 +41,15 @@ resource "aws_s3_object" "error_html" {
   etag         = filemd5(var.error_html_filepath) # Compute the ETag based on the file
 }
 
+resource "aws_s3_object" "upload_assets" {
+  for_each = fileset ("var.assets_path","*")
+  bucket       = aws_s3_bucket.website_bucket.bucket
+  key          = "assets/${each.key}"
+  source       = "${var.assets_path}/${each.key}"
+  # content_type = "text/html"
+  etag         = filemd5("${var.assets_path}/${each.key}") # Compute the ETag based on the file
+}
+
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy
 
 resource "aws_s3_bucket_policy" "website_bucket_policy" {

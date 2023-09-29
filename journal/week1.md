@@ -210,3 +210,36 @@ Note that even though the resource will be fully created when the provisioner is
 ### Using Heredoc with local-exec
 
 [Heredoc](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings)
+
+
+## Listing and Uploading files with Terraform
+
+### Fileset function
+
+the Terraform function `fileset` enumerates a set of regular file names given a path and pattern. The path is automatically removed from the resulting set of file namee (any result still containing path separators always returns forward slash (/) as the path separator for cross-system compatibility).
+
+[Fileset Function documentation](https://developer.hashicorp.com/terraform/language/functions/fileset)
+
+```tf
+fileset ("${path.root}/public/assets","*")
+```
+
+### for_each Meta-Argument
+
+By default, a resource block configures one real infrastructure object (and similarly, a module block includes a child module's contents into the configuration one time). However, sometimes you want to manage several similar objects (like a fixed pool of compute instances) without writing a separate block for each one. Terraform has two ways to do this: count and for_each.
+
+[for_each Meta-Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
+
+
+
+### Dataset Types and Values
+
+Terraform offers many different data types and values.  Examples are `string` and `number`.  More complext types like `list`, `map` and `set` can also be used.  A full list can be found here: https://developer.hashicorp.com/terraform/language/expressions/types.
+
+Functions often expect a very specific type which may require you to "recast" from one type to another to use a particular function.  This can be painful to deal with.
+
+### Terraform Console
+
+If you want to test out different Terraform expressions before writing them into your code, you can use the Terraform Console to test and debug them interactively
+
+[Terraform Console](https://developer.hashicorp.com/terraform/cli/commands/console)
