@@ -17,22 +17,22 @@ variable "bucket_name" {
   }
 }
 
-variable "index_html_filepath" {
-  description = "Local file path to the index.html file"
-  type        = string
+# variable "index_html_filepath" {
+#   description = "Local file path to the index.html file"
+#   type        = string
 
-  validation {
-    condition     = fileexists(var.index_html_filepath)
-    error_message = "The specified HTML file path does not exist."
-  }
-}
+#   validation {
+#     condition     = fileexists(var.index_html_filepath)
+#     error_message = "The specified HTML file path does not exist."
+#   }
+# }
 
-variable "error_html_filepath" {
-  description = "Local file path to the error.html file"
-  type        = string
+# variable "error_html_filepath" {
+#   description = "Local file path to the error.html file"
+#   type        = string
 
-  validation {
-    condition     = fileexists(var.error_html_filepath)
-    error_message = "The specified HTML file path does not exist."
-  }
-}
+#   validation {
+#     condition     = fileexists(var.error_html_filepath)
+#     error_message = "The specified HTML file path does not exist."
+#   }
+# }
