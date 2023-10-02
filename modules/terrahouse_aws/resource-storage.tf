@@ -4,6 +4,7 @@ resource "aws_s3_bucket" "website_bucket" {
    tags = {
      UserUuid    = "var.user_uuid"
      Environment = "Dev"
+     Hello       = "world"
    }
 } 
 
@@ -52,11 +53,13 @@ resource "aws_s3_bucket_policy" "website_bucket_policy" {
         },
         "Action" = "s3:GetObject",
         "Resource" = "arn:aws:s3:::${aws_s3_bucket.website_bucket.id}/*",
+        /*
         "Condition" = {
         "StringEquals" = {
             "AWS:SourceArn" = "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.s3_distribution.id}"
             }
         }
+        */
     }
   })
 }

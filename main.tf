@@ -1,12 +1,12 @@
 terraform {
-  # cloud {
-  #   organization = "cloudyadvice"
+  cloud {
+    organization = "cloudyadvice"
 
-  # workspaces {
-  #   name = "terra-house-1"
-  # }
+  workspaces {
+    name = "terraform-cloud"
+  }
 }
-
+}
 module "terrahouse_aws" {
   source = "./modules/terrahouse_aws"
   user_uuid = var.user_uuid
