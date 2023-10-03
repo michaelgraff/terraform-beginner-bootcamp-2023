@@ -45,3 +45,8 @@ bundle exec ruby server.rb
 ```
 
 All of the code for our web server is stored in the `server.rb` file.
+
+## Writing Custom Providers for Terraform
+
+[Hashicorp Documentation on Custom Providers](https://developer.hashicorp.com/terraform/tutorials/providers-plugin-framework)
+
