@@ -50,3 +50,10 @@ All of the code for our web server is stored in the `server.rb` file.
 
 [Hashicorp Documentation on Custom Providers](https://developer.hashicorp.com/terraform/tutorials/providers-plugin-framework)
 
+### Setup and Implement Read
+
+[Example Document on Setting up and Implementing Read](https://developer.hashicorp.com/terraform/tutorials/providers/provider-setup)
+
+## Compile provider and Terraform Local Providers
+
+https://servian.dev/terraform-local-providers-and-registry-mirror-configuration-b963117dfffa
