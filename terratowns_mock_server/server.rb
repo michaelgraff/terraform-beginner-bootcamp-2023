@@ -96,10 +96,12 @@ class TerraTownsMockServer < Sinatra::Base
       error 401, "a1001 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
 
+    # was there a user_uuid in the body payload json
     if params['user_uuid'].nil?
       error 401, "a1002 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
 
+    #the code and the user_uuid should be matching for this user
     unless code == x_access_code && params['user_uuid'] == x_user_uuid
       error 401, "a1003 Failed to authenicate, bearer token invalid and/or teacherseat_user_uuid invalid"
     end
@@ -109,27 +111,32 @@ class TerraTownsMockServer < Sinatra::Base
   post '/api/u/:user_uuid/homes' do
     ensure_correct_headings()
     find_user_by_bearer_token()
+    #puts will print to the terminal
     puts "# create - POST /api/homes"
 
+    # a begin/rescoue is a try/catch, if an error occurs, result it
     begin
       payload = JSON.parse(request.body.read)
     rescue JSON::ParserError
       halt 422, "Malformed JSON"
     end
 
-    # Validate payload data
+    # assign the payload to variables
+    # to make it easier to work with the code
     name = payload["name"]
     description = payload["description"]
     domain_name = payload["domain_name"]
     content_version = payload["content_version"]
     town = payload["town"]
 
+    # print the variables to console to make it easier to see or debug
     puts "name #{name}"
     puts "description #{description}"
     puts "domain_name #{domain_name}"
     puts "content_version #{content_version}"
     puts "town #{town}"
 
+    # create a new Home model and set attributers
     home = Home.new
     home.town = town
     home.name = name
@@ -137,12 +144,16 @@ class TerraTownsMockServer < Sinatra::Base
     home.domain_name = domain_name
     home.content_version = content_version
     
+    # ensure validation checks pass otherwise return error messages
     unless home.valid?
       error 422, home.errors.messages.to_json
     end
 
+    # genenerate a uuid at random
     uuid = SecureRandom.uuid
     puts "uuid #{uuid}"
+    # will save our data to our mock database
+    # which is just a global variable
     $home = {
       uuid: uuid,
       name: name,
@@ -152,6 +163,7 @@ class TerraTownsMockServer < Sinatra::Base
       content_version: content_version
     }
 
+    # will just return the uuid
     return { uuid: uuid }.to_json
   end
 
@@ -172,6 +184,7 @@ class TerraTownsMockServer < Sinatra::Base
   end
 
   # UPDATE
+  # very similar to CREATE action
   put '/api/u/:user_uuid/homes/:uuid' do
     ensure_correct_headings
     find_user_by_bearer_token
@@ -218,6 +231,7 @@ class TerraTownsMockServer < Sinatra::Base
       error 404, "failed to find home with provided uuid and bearer token"
     end
 
+    # delete from our mock database
     $home = {}
     { message: "House deleted successfully" }.to_json
   end
