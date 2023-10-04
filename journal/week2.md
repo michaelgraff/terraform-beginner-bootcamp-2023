@@ -57,3 +57,15 @@ All of the code for our web server is stored in the `server.rb` file.
 ## Compile provider and Terraform Local Providers
 
 https://servian.dev/terraform-local-providers-and-registry-mirror-configuration-b963117dfffa
+
+## CRUD
+
+Terraform requires that all Providers define an action for Create, Read, Update and Delete
+[CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
+
+CRUD	HTTP
+Create	POST, PUT if we have `id` or `uuid`
+Read	GET
+Update	PUT to replace, PATCH to modify
+Delete	DELETE
