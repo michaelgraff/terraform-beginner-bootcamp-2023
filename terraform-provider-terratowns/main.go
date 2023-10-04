@@ -38,6 +38,7 @@ func Provider() *schema.Provider {
 	p = &schema.Provider{
 		ResourcesMap:  map[string]*schema.Resource{
 			"terratowns_home": Resource(),
+			"terratowns_home": Resource(),
 		},
 		DataSourcesMap:  map[string]*schema.Resource{
 
@@ -305,7 +306,7 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 
 	// Set Headers
-	req.Header.Set("Authorization", "Bearer "+config.Token)
+	 req.Header.Set("Authorization", "Bearer "+config.Token)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
 
