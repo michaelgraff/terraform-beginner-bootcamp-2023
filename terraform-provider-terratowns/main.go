@@ -38,7 +38,6 @@ func Provider() *schema.Provider {
 	p = &schema.Provider{
 		ResourcesMap:  map[string]*schema.Resource{
 			"terratowns_home": Resource(),
-			"terratowns_home": Resource(),
 		},
 		DataSourcesMap:  map[string]*schema.Resource{
 
