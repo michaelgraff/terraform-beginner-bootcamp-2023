@@ -13,27 +13,21 @@ variable "terratowns_endpoint" {
   type        = string
 }
 
-# variable "bucket_name" {
-#   description = "The name of the AWS S3 bucket"
-#   type        = string
+# variable "content_version" {
+#   description = "The content version.  Should be a positive integer starting at 1"
+#   type        = number
 # }
 
-variable "index_html_filepath" {
-  description = "Local file path to the index.html file"
-  type        = string
+variable "easystars" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
 
-variable "error_html_filepath" {
-  description = "Local file path to the error.html file"
-  type        = string
-}
-
-variable "content_version" {
-  description = "The content version.  Should be a positive integer starting at 1"
-  type        = number
-}
-
-variable "assets_path" {
-  description = "the path to the assets"
-  type = string
+variable "cocktails" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
