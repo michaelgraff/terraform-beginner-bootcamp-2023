@@ -58,7 +58,7 @@ func Provider() *schema.Provider {
 				Type: schema.TypeString,
 				Required: true,
 				Description: "UUID for configuration",
-				//ValidateFunc: validateUUID,
+				ValidateFunc: validateUUID,
 			},
 		},
 	}
@@ -69,7 +69,7 @@ func Provider() *schema.Provider {
 func validateUUID(v interface{}, k string) (ws []string, errors []error) {
 	log.Print("validateUUID:start")
 	value := v.(string)
-	if _,err := uuid.Parse(value); err != nil {
+	if _, err := uuid.Parse(value); err != nil {
 		errors = append(errors, fmt.Errorf("invalid UUID format"))
 	}
 	log.Print("validateUUID:end")
@@ -226,7 +226,7 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 		d.Set("description",responseData["description"].(string))
 		d.Set("domain_name",responseData["domain_name"].(string))
 		d.Set("content_version",responseData["content_version"].(float64))
-	} else if resp.StatusCode != http.StatusNotFound {
+	} else if resp.StatusCode == http.StatusNotFound {
 		d.SetId("")
 	} else if resp.StatusCode != http.StatusOK {
 		return diag.FromErr(fmt.Errorf("failed to read home resource, status_code: %d, status: %s, body %s", resp.StatusCode, resp.Status, responseData))
@@ -283,7 +283,7 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 
 	// StatusOK = 200 HTTP Response Code
 	if resp.StatusCode != http.StatusOK {
-		return diag.FromErr(fmt.Errorf("failed to update home resource, status_code: %d, status: %s", resp.StatusCode, resp.Status))
+		return diag.FromErr(fmt.Errorf("failed to update home resource, status_code: %d, status: %s, body %s", resp.StatusCode, resp.Status, responseData))
 	}
 
 	log.Print("resourceHouseUpdate:end")
@@ -311,7 +311,7 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 
 	// Set Headers
-	 req.Header.Set("Authorization", "Bearer "+config.Token)
+	req.Header.Set("Authorization", "Bearer "+config.Token)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
 

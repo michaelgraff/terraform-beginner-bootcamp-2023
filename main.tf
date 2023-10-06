@@ -36,7 +36,7 @@ The band is known for its reinterpretations of classic albums in reggae style.
   DESCRIPTION
   domain_name = module.home_easystars_hosting.cloudfront_url
   #domain_name = "abcd1234.cloudfront.net"
-  town = "missingo"
+  town = "melomaniac-mansion"
   content_version = var.easystars.content_version
 }
 
@@ -55,6 +55,6 @@ On this page I highlight a few of my favorites and share recipes.
   DESCRIPTION
   domain_name = module.home_cocktails_hosting.cloudfront_url
   #domain_name = "abcd1234.cloudfront.net"
-  town = "missingo"
+  town = "cooker-cove"
   content_version = var.cocktails.content_version
 }
