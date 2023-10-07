@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>TerraHouse</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>TerraHouse</title>
+        <style>
+            .image-container {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px; /* Add margin between image-text pairs */
+            }
+    
+            .image-container img {
+                margin-right: 10px; /* Adjust the margin as needed */
+            }
+    
+            .text {
+                text-align: left;
+            }
+        </style>
+    </head>
 <body>
     <header>
         <h1>Hello Fellow Terraformers!</h1>
@@ -22,19 +37,61 @@
             <p>If you are a fan of reggae you will not want to miss this band.  The way they choose to reinterpret some classic recordings
                 is both extremely creative and highly entertaining.
             </p>
-
-            <h3>Discography</h3>
-            <p>The band has released a total of eight albums so far, with two of them being original content and six of them being complete remakes of classic albums from start to finish</p>
+            <p>Check out a live performance from the band:</p>
+            <p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cpBk7W77DkI?si=VNslASplfZzHNwff" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </p>
             
-            <p><img src="/assets/easy-stars-dub-side-of-the-moon.jpg"/> </p>
-            <p>Their first album entitled <a href="https://en.wikipedia.org/wiki/Dub_Side_of_the_Moon" width="200">"Dub Side of the Moon"</a> was released in 2003, and is a complete cover of Pink Floyd's "Dark Side of the Moon"</p>
-            <p><img src="/assets/easy-stars-radiodread.jpg" width="200"/></p>
-            <p>Their second album, and perhaps my favorite from this band is <a href="https://en.wikipedia.org/wiki/Radiodread">"Radiodread</a>, released in 2006, which is a remake of the classic Radiohead album "OK Computer"</p>
-            <p><img src="/assets/lonely-hearts-dub.jpg" width="200"/></p>
-            <p><a href="https://en.wikipedia.org/wiki/Easy_Star%27s_Lonely_Hearts_Dub_Band">"Easy Star's Lonely Hearts Dub Band"</a> released in 2009 is a tour de force tribute to the seminal "Sgt. Pepper's Lonely Hearts Club Band" by the Beatles.</a></p>
-            <p><img src="/assets/ziggy-stardub.jpg" width="200"/></p>
-            <p>The band's most recent release, from 2023 is <a href="https://easystarallstars.bandcamp.com/album/ziggy-stardub">"Ziggy Stardub"</a>, a remake of the classic David Bowie album "Ziggy Stardust".
-        </section>
+            <section>
+                <h3>Discography</h3>
+                <div class="image-container">
+                    <img src="/assets/easy-stars-dub-side-of-the-moon.jpg" width="100" alt="Dub Side of the Moon">
+                    <div class="text">
+                        <p>Their first album entitled <a href="https://en.wikipedia.org/wiki/Dub_Side_of_the_Moon" width="200"><i>Dub Side of the Moon</i></a> was released in 2003, and is a complete cover of Pink Floyd's <i>Dark Side of the Moon</i></p>
+                    </div>
+                </div>
+        
+                <div class="image-container">
+                    <img src="/assets/easy-stars-radiodread.jpg" width="100" alt="Radiodread">
+                    <div class="text">
+                        <p>Their second album, and perhaps my favorite from this band is <a href="https://en.wikipedia.org/wiki/Radiodread"><i>Radiodread</i></a>, released in 2006, which is a remake of the classic Radiohead album <i>OK Computer</i></p>
+                        <p>Listen to <a href="https://easystarallstars.bandcamp.com/track/airbag-feat-horace-andy">"Airbag"</a></p>
+                    </div>
+                </div>            
+                <div class="image-container">
+                    <img src="/assets/lonely-hearts-dub.jpg" width="100" alt="Lonely Hearts Dub Band">
+                    <div class="text">
+                        <p><a href="https://en.wikipedia.org/wiki/Easy_Star%27s_Lonely_Hearts_Dub_Band"><i>Easy Star's Lonely Hearts Dub Band</i></a> released in 2009 is a tour de force tribute to the seminal <i>Sgt. Pepper's Lonely Hearts Club Band</i> by the Beatles.</p>
+                        <p>Listen to <a href="https://easystarallstars.bandcamp.com/track/with-a-little-help-from-my-friends-feat-luciano">"With a Little Help from my Friends"</a></p>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="/assets/dubberside.jpg" width="100" alt="Dubber Side of the Moon">
+                    <div class="text">
+                        <p>In October 2010, the Easy Star All-Stars released <a href="https://easystarallstars.bandcamp.com/album/dubber-side-of-the-moon"><i>Dubber Side of the Moon</i></a>, featuring bass-heavy remixes of <i>Dub Side of the Moon</i> by Dubmatix, 10 Ft. Ganja Plant, Groove Corporation, Dubphonic, The Alchemist, Dreadzone, Kalbata, Adrian Sherwood & Jazzwad, Victor Rice, Border Crossing, Mad Professor, Michael G. & Easy Star All-Stars, and J. Viewz.  
+                            Listen to one of the tracks from the album:<a href="https://easystarallstars.bandcamp.com/track/speak-to-me-breathe-in-the-air-dubmatix-remix"> "Speak To Me/Breathe"</a></p>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="/assets/first-light.jpg" width="100" alt="First Light">
+                    <div class="text">
+                        <p><a href="https://easystarallstars.bandcamp.com/album/first-light"><i>First Light</i></a>, released in 2011, was the first full length album featuring original content from the band.</p>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="/assets/thrillah.jpg" width="100" alt="Thrillah">
+                    <div class="text">
+                        <p><a href="https://easystarallstars.bandcamp.com/album/easy-stars-thrillah"><i>Easy Star's Thrillah</i></a>, released in 2012 is a remake of the classic Michael Jackson album Thriller</p>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="/assets/ziggy-stardub.jpg" width="100" alt="Ziggy Stardub">
+                    <div class="text">
+                        <p>After a ten year wait, fans were finally rewarded with a new record in 2023. <a href="https://easystarallstars.bandcamp.com/album/ziggy-stardub"><i>Ziggy Stardub</i></a>, a remake of the classic David Bowie album "Ziggy Stardust".</p>
+                        Listen to a track from the album<a href="https://easystarallstars.bandcamp.com/track/rock-n-roll-suicide-feat-macy-gray">: "Rock and Roll Suicide."</a></p>
+                    </div>
+                </div>
+            </section>
     </main>
     <footer>
         <p>&copy; 2023 TerraTowns</p>
