@@ -54,11 +54,11 @@ All of the code for our web server is stored in the `server.rb` file.
 
 [Example Document on Setting up and Implementing Read](https://developer.hashicorp.com/terraform/tutorials/providers/provider-setup)
 
-## Compile provider and Terraform Local Providers
+### Compile provider and Terraform Local Providers
 
 https://servian.dev/terraform-local-providers-and-registry-mirror-configuration-b963117dfffa
 
-## CRUD
+### CRUD
 
 Terraform requires that all Providers define an action for Create, Read, Update and Delete
 [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
@@ -72,7 +72,10 @@ Delete	DELETE
 
 ## Go Language
 
+Here's official docs for GO:
 [GO Language Documentation](https://go.dev/doc/)
+
+here's the full language reference
 [GO Language Reference](https://go.dev/ref/spec)
 
 
