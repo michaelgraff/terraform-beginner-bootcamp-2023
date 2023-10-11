@@ -69,3 +69,10 @@ Create	POST, PUT if we have `id` or `uuid`
 Read	GET
 Update	PUT to replace, PATCH to modify
 Delete	DELETE
+
+## Go Language
+
+[GO Language Documentation](https://go.dev/doc/)
+[GO Language Reference](https://go.dev/ref/spec)
+
+
